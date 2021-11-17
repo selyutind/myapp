@@ -36,7 +36,9 @@ local ok, err = cartridge.cfg({
         'cartridge.roles.vshard-storage',
         'cartridge.roles.vshard-router',
         'cartridge.roles.metrics',
-        'app.roles.custom',
+        'app.roles.hello-world',
+        'app.roles.api',
+        'app.roles.storage'
     },
 })
 

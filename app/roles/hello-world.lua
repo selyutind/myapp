@@ -9,6 +9,9 @@ local function init(opts) -- luacheck: no unused args
         return {body = 'Hello world!'}
     end)
 
+    local log = require('log')
+    log.info('Hello world!')
+
     return true
 end
 
@@ -28,7 +31,7 @@ local function apply_config(conf, opts) -- luacheck: no unused args
 end
 
 return {
-    role_name = 'app.roles.custom',
+    role_name = 'Hello world!',
     init = init,
     stop = stop,
     validate_config = validate_config,
