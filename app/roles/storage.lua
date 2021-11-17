@@ -1,7 +1,7 @@
 -- модуль проверки аргументов в функциях
 local checks = require('checks')
 local errors = require('errors')
--- класс ошибок дуступа к хранилищу профилей
+-- класс ошибок дуступа к хранилищу
 local err_storage = errors.new_class("Storage error")
 
 -- Функция преобразующая кортеж в таблицу согласно схеме хранения
@@ -40,7 +40,7 @@ local function init_space()
         }
     )
 
-    -- создадим индекс по id профиля
+    -- создадим индекс по id
     city:create_index('city_id', {
         parts = {'city_id'},
         if_not_exists = true,
@@ -56,7 +56,7 @@ end
 local function city_add(city)
     checks('table')
 
-    -- Проверяем существование пользователя с таким id
+    -- Проверяем существование города с таким id
     local exist = box.space.city:get(city.city_id)
     if exist ~= nil then
         return {ok = false, error = err_storage:new("City already exist")}
