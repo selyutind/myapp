@@ -20,7 +20,7 @@ end
 local deepcopy = require('table').deepcopy
 
 local test_city = {
-    city_id = 1, 
+    city_id = 1,
     name = 'Moscow',
     country = 'Russia',
     airport = 'DME'
@@ -61,12 +61,12 @@ g.test_on_get_unauthorized = function()
 end
 
 g.test_on_put_not_found = function()
-    helper.assert_http_json_request('put', '/city/2', changes ={msgs_count = 115}},
+    helper.assert_http_json_request('put', '/city/2', {changes = {msgs_count = 115}},
     {body = {info = "city not found"}, status = 404})
 end
 
 g.test_on_put_unauthorized = function()
-    helper.assert_http_json_request('put', '/city/1', {changes = {msgs_count = 115}}, 
+    helper.assert_http_json_request('put', '/city/1', {changes = {msgs_count = 115}},
     {body = {info = "Unauthorized"}, status = 401})
 end
 
