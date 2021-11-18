@@ -68,7 +68,7 @@ local function city_add(city)
 end
 
 local function city_update(id, changes)
-    checks('number', 'string', 'table')
+    checks('number', 'table')
 
     local exists = box.space.city:get(id)
 
@@ -86,7 +86,7 @@ local function city_update(id, changes)
 end
 
 local function city_get(id)
-    checks('number', 'string')
+    checks('number')
 
     local city = box.space.city:get(id)
     if city == nil then
@@ -99,7 +99,7 @@ local function city_get(id)
 end
 
 local function city_delete(id)
-    checks('number', 'string')
+    checks('number')
 
     local exists = box.space.city:get(id)
     if exists == nil then

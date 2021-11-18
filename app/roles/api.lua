@@ -106,7 +106,7 @@ local function http_city_update(req)
 end
 
 local function http_city_get(req)
-    local city_id = tonumber(req:stash('city'))
+    local city_id = tonumber(req:stash('city_id'))
     local router = cartridge.service_get('vshard-router').get()
     local bucket_id = router:bucket_id(city_id)
 
