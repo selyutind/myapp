@@ -5,7 +5,7 @@ local log = require('log')
 local err_vshard_router = errors.new_class("Vshard routing error")
 local err_httpd = errors.new_class("httpd error")
 
-local function json_response(req, json, status) 
+local function json_response(req, json, status)
     local resp = req:render({json = json})
     resp.status = status
     return resp
